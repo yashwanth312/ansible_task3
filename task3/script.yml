@@ -1,0 +1,9 @@
+- hosts: tag_environment_ansible
+  remote_user: ec2-user
+  become: yes
+  roles:
+    - role: webserver
+
+- hosts: loadbalancer 
+  roles:
+    - role: loadbalancer

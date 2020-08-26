@@ -1,0 +1,22 @@
+---
+# tasks file for ec2
+#
+
+- name: Provisioning OS from AWS (EC2)
+  ec2:
+      key_name: "terraform-20200612192017563900000002"
+      instance_type: "t2.micro"
+      image: "ami-0ebc1ac48dfd14136"
+      wait: yes
+      count: 2
+      vpc_subnet_id: "subnet-6a0c6726"
+      assign_public_ip: yes
+      region: "ap-south-1"
+      state: present
+      group_id: "sg-072bb424f220051ba"
+      aws_access_key: "{{ name }}"
+      aws_secret_key: "{{ pass }}"
+      instance_tags:
+        environment: ansible
+  register: ec2os
+

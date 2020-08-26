@@ -1,0 +1,7 @@
+---
+# handlers file for loadbalancer
+#
+- name: restart on change haproxy.cfg
+  service:
+    name: "haproxy"
+    state: restarted
